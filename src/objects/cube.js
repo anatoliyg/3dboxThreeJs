@@ -8,15 +8,20 @@ class Cube {
     constructor() {
 
         this.size = 200;
-        this.rotation = .001;
+        this.rotation = .01;
 
         this.geometry = new THREE.BoxGeometry(300, 500, 200);
-        this.material = new THREE.MeshLambertMaterial({
-            wireframe: true,
-            color: 0x0000FF
-        });
+        // this.material = new THREE.MeshLambertMaterial({
+        //     wireframe: false,
+        //     color: 0x0000FF
+        // });
+        var sphereMaterial = new THREE.MeshLambertMaterial(
+            {
+                wireframe: false,
+                color: 0x0000FF
+            });
 
-        this.mesh = new THREE.Mesh(this.geometry, this.material);
+        this.mesh = new THREE.Mesh(this.geometry, sphereMaterial);
 
     }
 
@@ -27,9 +32,9 @@ class Cube {
      */
     update() {
 
-        // this.mesh.rotation.x += this.rotation;
+        this.mesh.rotation.x += this.rotation;
         this.mesh.rotation.y += this.rotation;
-        // this.mesh.rotation.z += this.rotation;
+        this.mesh.rotation.z += this.rotation;
 
     }
 

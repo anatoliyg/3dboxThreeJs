@@ -14,9 +14,21 @@ class Scene {
 
         this.scene = new THREE.Scene();
 
+        var pointLight = new THREE.PointLight(0xFFFFFF);
+
+        // set its position
+        pointLight.position.x = 10;
+        pointLight.position.y = 50;
+        pointLight.position.z = 130;
+
+        // add to the scene
+        this.scene.add(pointLight);
+
+
+
         this.renderer = new THREE.WebGLRenderer({antialias: true});
         this.renderer.setSize(this.width, this.height);
-        this.renderer.setClearColor(0x111111);
+        this.renderer.setClearColor(0xFFFFFF);
 
         this.camera = new THREE.PerspectiveCamera(50, this.width / this.height, 1, 2000);
         this.camera.position.z = 1000;
@@ -72,7 +84,7 @@ class Scene {
      */
     render() {
 
-        this.renderer.autoClearColor = true;
+        //this.renderer.autoClearColor = true;
         this.composer.reset();
         this.composer.render(this.scene, this.camera);
         //this.composer.pass(this.bloomPass);

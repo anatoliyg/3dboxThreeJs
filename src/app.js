@@ -17,12 +17,20 @@ class App {
         this.scene = new Scene();
         this.cube = new Cube();
 
-        var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
-        directionalLight.position.set( 0, 1, 0 );
-        this.scene.add( directionalLight );
 
         this.scene.add(this.cube.mesh);
-        this.scene.add(new THREE.AmbientLight(0x0000F0));
+
+        // create a point light
+        // var pointLight =
+        //   new THREE.PointLight(0xFFFFFF);
+
+        // // set its position
+        // pointLight.position.x = 10;
+        // pointLight.position.y = 50;
+        // pointLight.position.z = 130;
+
+        // // add to the scene
+        // this.scene.add(pointLight);
 
         const root = document.body.querySelector('.app');
         root.appendChild(this.scene.renderer.domElement);
@@ -64,7 +72,6 @@ class App {
     update() {
 
         this.cube.update();
-
         this.scene.render();
 
     }
